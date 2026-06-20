@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { assets } from '$app/paths';
 	import '$lib/invoice/invoice.css';
 	import {
 		computeInvoiceTotal,
@@ -30,7 +31,7 @@
 <div class="invoice-document">
 	<div class="header-row">
 		<div class="header-left">
-			<img src="/logo.svg" alt="Logo" class="logo" />
+			<img src={`${assets}/logo.svg`} alt="Logo" class="logo" />
 			<h1>Invoice</h1>
 		</div>
 		<div class="header-right">
