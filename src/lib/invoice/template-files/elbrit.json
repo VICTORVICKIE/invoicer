@@ -1,0 +1,27 @@
+{
+	"label": "Elbrit",
+	"editableSettings": false,
+	"data": {
+		"invoiceNumber": "INV-6",
+		"date": "Jun 01, 2026",
+		"fromAddress": "Vignesh Kumar S\nVictors Industries\nAccount Number: 5010 0488 5349 42\nIFSC          : HDFC0004221\nBranch        : VILLIVAKKAM\nUPI           : s.vickie14-1@okhdfcbank\nPAN           : BPLPV1598B",
+		"toAddress": "Elbrit Life Sciences Pvt Ltd",
+		"columns": {
+			"effort": "Effort (Hours)",
+			"rate": "Rate (₹)",
+			"subtotal": "Subtotal (₹)"
+		},
+		"currency": "INR",
+		"currencySymbol": "₹",
+		"totalLabel": "Total due (₹)",
+		"lineItems": [
+			{
+				"description": "Frappe ERPNext Scripts",
+				"effort": "150",
+				"rate": "1,100",
+				"subtotal": "1,65,000",
+				"subtotalManual": false
+			}
+		]
+	}
+}

@@ -1,0 +1,309 @@
+@font-face {
+	font-family: Pacifico;
+	src: url('/fonts/pacifico.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Source Sans Pro';
+	font-weight: 400;
+	src: url('/fonts/sourcesanspro-regular.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Source Sans Pro';
+	font-weight: 700;
+	src: url('/fonts/sourcesanspro-bold.otf') format('opentype');
+}
+
+@page {
+	size: A4;
+	margin: 1cm 2cm 2cm 2cm;
+}
+
+.invoice-document {
+	--invoice-text: #14213d;
+	--invoice-muted: #aa99aa;
+	--invoice-accent: #1ee494;
+
+	color: var(--invoice-text);
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 11pt;
+	line-height: 1.6;
+	width: 100%;
+	max-width: none;
+	-webkit-print-color-adjust: exact;
+	print-color-adjust: exact;
+}
+
+.invoice-document .header-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 2em;
+}
+
+.invoice-document .header-left {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.invoice-document .logo {
+	width: 60px;
+	height: 60px;
+	margin-bottom: 0.5em;
+}
+
+.invoice-document .header-right {
+	text-align: right;
+}
+
+.invoice-document .invoice-info {
+	font-size: 1.1em;
+	color: var(--invoice-text);
+	background: #fff;
+	padding: 1em 1.5em;
+	border-radius: 8px;
+}
+
+.invoice-document .invoice-info .label {
+	color: var(--invoice-muted);
+	font-weight: bold;
+	margin-right: 0.5em;
+}
+
+.invoice-document h1 {
+	font-family: Pacifico, cursive;
+	font-size: 2em;
+	font-weight: inherit;
+	color: var(--invoice-text);
+	margin-top: 0.2em;
+	margin-bottom: 0.5em;
+	text-align: left;
+}
+
+.invoice-document aside {
+	display: flex;
+	margin: calc(2em + 6mm) 0 4em;
+}
+
+.invoice-document aside address {
+	font-style: normal;
+	white-space: pre-line;
+}
+
+.invoice-document aside address#from {
+	color: var(--invoice-muted);
+	flex: 1;
+}
+
+.invoice-document aside address#to {
+	color: var(--invoice-text);
+	text-align: right;
+}
+
+.invoice-document table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.invoice-document th {
+	border-bottom: 0.2mm solid var(--invoice-muted);
+	color: var(--invoice-muted);
+	font-size: 10pt;
+	font-weight: 400;
+	padding-bottom: 0.25cm;
+	text-transform: uppercase;
+}
+
+.invoice-document td {
+	padding-top: 7mm;
+	color: var(--invoice-text);
+}
+
+.invoice-document td:last-of-type {
+	color: var(--invoice-accent);
+	font-weight: bold;
+	text-align: right;
+}
+
+.invoice-document th,
+.invoice-document td {
+	text-align: center;
+}
+
+.invoice-document th:first-of-type,
+.invoice-document td:first-of-type {
+	text-align: left;
+	max-width: 96px;
+	overflow-wrap: break-word;
+	white-space: normal;
+}
+
+.invoice-document th:last-of-type,
+.invoice-document td:last-of-type {
+	text-align: right;
+}
+
+.invoice-document table#total {
+	background: #fff;
+	border: none;
+	font-size: 20pt;
+	margin: 0;
+	width: 100%;
+	max-width: none;
+	box-sizing: border-box;
+}
+
+.invoice-document table#total thead th {
+	padding-top: 2cm;
+}
+
+.invoice-document table#total tbody td {
+	padding-top: 6mm;
+}
+
+.invoice-document footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: auto;
+	min-height: 6cm;
+	margin: 0;
+}
+
+@media screen {
+	.invoice-document footer .print-footer {
+		display: none;
+	}
+}
+
+.invoice-footer {
+	font-family: Pacifico, cursive;
+	line-height: 1.6;
+}
+
+.invoice-footer > span:first-child {
+	color: var(--invoice-accent, #1ee494);
+	font-size: 11pt;
+}
+
+.invoice-footer > span:last-child {
+	color: var(--invoice-muted, #aa99aa);
+	font-size: 9pt;
+}
+
+.invoice-footer-heart {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+@media print {
+	.invoice-page-shell {
+		width: auto;
+		min-height: auto;
+		aspect-ratio: auto;
+		padding: 0;
+		box-shadow: none;
+	}
+
+	.invoice-document {
+		display: flex;
+		flex-direction: column;
+		min-height: calc(297mm - 3cm);
+		box-sizing: border-box;
+	}
+
+	.invoice-document footer {
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		min-height: 6cm;
+	}
+
+	.invoice-document footer .print-footer {
+		display: flex !important;
+		visibility: visible !important;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		margin-top: auto;
+		padding-top: 1cm;
+		position: static !important;
+		-webkit-print-color-adjust: exact !important;
+		print-color-adjust: exact !important;
+	}
+}
+
+/* Fixed A4 page frame for on-screen preview (matches @page size) */
+.invoice-page-shell {
+	--invoice-page-width: 210mm;
+	--invoice-page-height: 297mm;
+	--invoice-page-padding-top: 1cm;
+	--invoice-page-padding-inline: 2cm;
+	--invoice-page-padding-bottom: 2cm;
+	--invoice-page-content-height: calc(
+		var(--invoice-page-height) - var(--invoice-page-padding-top) - var(--invoice-page-padding-bottom)
+	);
+
+	position: relative;
+	width: var(--invoice-page-width);
+	height: var(--invoice-page-height);
+	box-sizing: border-box;
+	padding: var(--invoice-page-padding-top) var(--invoice-page-padding-inline)
+		var(--invoice-page-padding-bottom);
+	background: #fff;
+	box-shadow:
+		0 1px 3px rgb(0 0 0 / 12%),
+		0 8px 24px rgb(0 0 0 / 8%);
+	flex-shrink: 0;
+	--invoice-text: #14213d;
+	--invoice-muted: #aa99aa;
+	--invoice-accent: #1ee494;
+}
+
+.invoice-page-preview .invoice-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: absolute;
+	right: var(--invoice-page-padding-inline);
+	bottom: 0;
+	left: var(--invoice-page-padding-inline);
+	height: var(--invoice-page-padding-bottom);
+}
+
+.invoice-page-content-area {
+	height: var(--invoice-page-content-height);
+	overflow: hidden;
+}
+
+.invoice-page-preview {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+.invoice-page-measure {
+	position: fixed;
+	left: -10000px;
+	top: 0;
+	visibility: hidden;
+	pointer-events: none;
+}
+
+.invoice-print-root {
+	display: none;
+}
+
+@media print {
+	.invoice-page-preview,
+	.invoice-page-measure {
+		display: none !important;
+	}
+
+	.invoice-print-root {
+		display: block;
+	}
+}

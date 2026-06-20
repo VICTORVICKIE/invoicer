@@ -1,0 +1,41 @@
+{
+	"label": "KMCS",
+	"editableSettings": false,
+	"data": {
+		"invoiceNumber": "INV-0x01",
+		"date": "May 16, 2026",
+		"fromAddress": "Victors Industries\nNO-3/5,\nKannadasan Street,\nDevanesan Nagar,\nPeerkankaranai,\nChennai 600063",
+		"toAddress": "Krishnamaya Consultancy Services\nOFFICE: B-0-13,\nLAKSAMANA APARTMENT,\nJALAN MORIB,\nOLD KLANG ROAD,\nKUALA LUMPUR 58100",
+		"columns": {
+			"effort": "Effort",
+			"rate": "Rate",
+			"subtotal": "Subtotal"
+		},
+		"currency": "INR",
+		"currencySymbol": "₹",
+		"totalLabel": "Total due",
+		"lineItems": [
+			{
+				"description": "Acceler8ai Drop 1",
+				"effort": "26",
+				"rate": "₹800",
+				"subtotal": "₹20,800",
+				"subtotalManual": false
+			},
+			{
+				"description": "Acceler8ai Drop 2",
+				"effort": "54",
+				"rate": "₹800",
+				"subtotal": "₹43,200",
+				"subtotalManual": false
+			},
+			{
+				"description": "Acceler8ai Drop 3",
+				"effort": "4",
+				"rate": "₹800",
+				"subtotal": "₹3,200",
+				"subtotalManual": false
+			}
+		]
+	}
+}

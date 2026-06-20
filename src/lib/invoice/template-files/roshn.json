@@ -1,0 +1,27 @@
+{
+	"label": "Roshn",
+	"editableSettings": false,
+	"data": {
+		"invoiceNumber": "INV-0x18",
+		"date": "Jun 09, 2026",
+		"fromAddress": "Vignesh Kumar Saravana Kumar\nVictors Industries\nNO-3/5,\nKannadasan Street,\nDevanesan Nagar,\nPeerkankaranai,\nChennai 600063",
+		"toAddress": "TOP TALENT SOLUTION LIMITED COMPANY\nOffice # 04, Salahuddin Al Ayoubi Street Building 1,\nOffice No. 4, 1st Floor,\nRiyadh 11452 - Saudi Arabia\nTel: 0112166210\nTRN Number :310395369200003",
+		"columns": {
+			"effort": "Effort (Month)",
+			"rate": "Rate",
+			"subtotal": "Subtotal ($)"
+		},
+		"currency": "USD",
+		"currencySymbol": "$",
+		"totalLabel": "Total due",
+		"lineItems": [
+			{
+				"description": "Consultation Fees for the Month : May 2026",
+				"effort": "1",
+				"rate": "1350",
+				"subtotal": "$1,350.00",
+				"subtotalManual": false
+			}
+		]
+	}
+}

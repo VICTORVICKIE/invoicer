@@ -1,0 +1,27 @@
+{
+	"label": "Custom",
+	"editableSettings": true,
+	"data": {
+		"invoiceNumber": "INV-001",
+		"date": "",
+		"fromAddress": "",
+		"toAddress": "",
+		"columns": {
+			"effort": "Effort",
+			"rate": "Rate",
+			"subtotal": "Subtotal"
+		},
+		"currency": "custom",
+		"currencySymbol": "₹",
+		"totalLabel": "Total due",
+		"lineItems": [
+			{
+				"description": "",
+				"effort": "",
+				"rate": "",
+				"subtotal": "",
+				"subtotalManual": false
+			}
+		]
+	}
+}
