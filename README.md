@@ -1,42 +1,73 @@
-# sv
+# Invoicer
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A browser-based invoice editor built with SvelteKit. Edit invoice fields on the left, preview the document on the right, and print or save as PDF from the browser.
 
-## Creating a project
+**Live site:** [victorvickie.github.io/invoicer](https://victorvickie.github.io/invoicer/)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Features
 
-```sh
-# create a new project
-npx sv create my-app
-```
+- Split-pane editor and live preview
+- Built-in templates (Elbrit, KMCS, Roshn)
+- Customizable line items, addresses, currency, and column labels
+- Print / save as PDF via the browser print dialog
 
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-pnpm dlx sv@0.16.1 create --template minimal --types jsdoc --add tailwindcss="plugins:typography" --install pnpm invoicer
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Development
 
 ```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm install
+pnpm dev
 ```
 
-## Building
+Open [http://localhost:5173](http://localhost:5173). Use `pnpm dev -- --open` to launch the browser automatically.
 
-To create a production version of your app:
+## Build
+
+The app uses [`@sveltejs/adapter-static`](https://svelte.dev/docs/kit/adapter-static) and outputs to `build/`.
+
+For local production preview, set `BASE_PATH` to match the GitHub Pages subpath (repo name):
 
 ```sh
-npm run build
+# PowerShell
+$env:BASE_PATH="/invoicer"
+pnpm build
+pnpm preview
 ```
 
-You can preview the production build with `npm run preview`.
+```sh
+# bash
+BASE_PATH=/invoicer pnpm build
+pnpm preview
+```
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+`pnpm dev` runs without a base path. Production builds expect `BASE_PATH` (set automatically in CI).
+
+## Deploy to GitHub Pages
+
+Deployment is handled by [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml). On every push to `main`, the workflow:
+
+1. Installs dependencies with pnpm
+2. Builds the static site with `BASE_PATH=/<repo-name>`
+3. Publishes the `build/` folder to GitHub Pages
+
+**One-time setup:**
+
+1. Push this repo to GitHub
+2. Go to **Settings → Pages**
+3. Under **Build and deployment**, set **Source** to **GitHub Actions**
+
+After the workflow succeeds, the site is available at `https://<username>.github.io/<repo-name>/`.
+
+## Scripts
+
+| Command | Description |
+| --- | --- |
+| `pnpm dev` | Start the development server |
+| `pnpm build` | Create a static production build in `build/` |
+| `pnpm preview` | Preview the production build locally |
+| `pnpm check` | Run Svelte type checking |
+
+## Stack
+
+- [SvelteKit](https://kit.svelte.dev/) + [Svelte 5](https://svelte.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn-svelte](https://www.shadcn-svelte.com/)
